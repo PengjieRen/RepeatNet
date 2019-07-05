@@ -59,7 +59,7 @@ with codecs.open('userid-timestamp-artid-artname-traid-traname.tsv', encoding='u
 
         if (last_time-time).total_seconds()>28800 or last_user!=userid:
             if 50>len(session)>1 :
-                ff.write(', '.join(session) + os.linesep)
+                ff.write(', '.join(list(reversed(session))) + os.linesep)
                 ff.flush()
             session = list()
             last_user = userid
